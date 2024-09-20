@@ -1,10 +1,10 @@
 import React from 'react'
 
-const Recipe = ({recipe}) => {
+const Recipe = ({recipe,handleCookLists}) => {
     const {name, image, description,calories, preparing_time, ingredients} = recipe
   return (
     <div className='m-2'>
-       <div className="bg-white rounded-3xl h-full flex flex-col gap-6  shadow-xl p-2">
+       <div className="bg-white rounded-3xl h-full flex justify-between flex-col gap-6  shadow-xl p-2">
   <figure className="">
     <img
       src={image}
@@ -27,7 +27,10 @@ const Recipe = ({recipe}) => {
         </ul>
         </>
     )})}
-    
+    <div className='w-full text-right'>
+
+    <button className='bg-lime-400 px-6 py-2 self-end rounded-full cursor-pointer' onClick={() => { handleCookLists(recipe) }}>Want to Cook</button>
+    </div>
   </div>
 </div>
         </div>
