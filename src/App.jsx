@@ -13,7 +13,7 @@ function App() {
       <Router>
         <div className="sm:w-full max-w-[1200px] m-auto">
           <Navbar />
-          <div className="p-4">
+          <div className="p-2">
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/recipes" element={<Recipes />} />
@@ -21,6 +21,8 @@ function App() {
               <Route path="/search" element={<Search />} />
             </Routes>
           </div>
+
+          
         </div>
       </Router>
     </>

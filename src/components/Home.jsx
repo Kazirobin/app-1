@@ -1,5 +1,6 @@
 import React from "react";
 import bgImg from "../assets/Banner_img.png";
+import Recipes from "./Recipes";
 
 const Home = () => {
   return (
@@ -27,6 +28,7 @@ const Home = () => {
           </div>
         </div>
       </div>
+      <Recipes/>
     </>
   );
 };

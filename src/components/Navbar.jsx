@@ -38,15 +38,9 @@ const Navbar = () => {
             </li>
           </ul>
         </div>
-        <div
-          className={
-            !isNavOpen
-              ? "flex justify-center gap-2"
-              : "hidden"
-          }
-        >
+        <div className={!isNavOpen ? "flex justify-center gap-2" : "hidden"}>
           <div className="flex items-center border-lime-400 border-4 p-2 rounded-full ">
-            <CiSearch className=" text-gray-500 mx-2"/>
+            <CiSearch className=" text-gray-500 mx-2" />
             <input
               type="text"
               name="search"
@@ -56,7 +50,7 @@ const Navbar = () => {
             {/* Position the icon inside the input field */}
           </div>
           <button className="flex items-center border-lime-400 border-4  rounded-full p-2 hover:bg-lime-400">
-            <img src={userIcon} alt="" className="size-8 " srcset="" />
+            <img src={userIcon} alt="" className="size-8"/>
           </button>
         </div>
       </nav>
