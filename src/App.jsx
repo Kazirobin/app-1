@@ -11,7 +11,7 @@ function App() {
   return (
     <>
       <Router>
-        <div className="min-h-screen  max-w-[1200px] m-auto">
+        <div className="sm:w-full max-w-[1200px] m-auto">
           <Navbar />
           <div className="p-4">
             <Routes>
