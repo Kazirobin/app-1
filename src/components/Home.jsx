@@ -6,11 +6,7 @@ const Home = () => {
     <>
       <div
         style={{ backgroundImage: `url(${bgImg})` }}
-<<<<<<< HEAD
         className="banner lg:h-[480px] md:h-[600px] w-full relative flex justify-center items-center bg-cover bg-center"
-=======
-        className="banner h-[520px] w-full relative flex justify-center items-center bg-cover bg-center"
->>>>>>> 17c349950a588c91a9acdabaee659033f9cbd944
       >
         <div className="text-white  xl:w-3/5 flex flex-col justify-center px-4 gap-5 h-full">
           <h1 className="font-bold text-4xl leading-10">

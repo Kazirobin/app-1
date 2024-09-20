@@ -41,22 +41,22 @@ const Navbar = () => {
         <div
           className={
             !isNavOpen
-              ? "flex xs:w-full justify-center items-center gap-5"
+              ? "flex justify-center gap-2"
               : "hidden"
           }
         >
-          <div className="relative">
+          <div className="flex items-center border-lime-400 border-4 p-2 rounded-full ">
+            <CiSearch className=" text-gray-500 mx-2"/>
             <input
               type="text"
               name="search"
               placeholder="Search"
-              className="pl-8 pr-4 py-2 border-2 border-red-400 rounded-3xl"
+              className=" w-8/12"
             />
             {/* Position the icon inside the input field */}
-            <CiSearch className="absolute left-2 top-1/2 transform -translate-y-1/2 text-gray-400"/>
           </div>
-          <button className="bg-lime-500 size-10 p-2 rounded-3xl ">
-            <img src={userIcon} alt="" srcset="" />
+          <button className="flex items-center border-lime-400 border-4  rounded-full p-2">
+            <img src={userIcon} alt="" className="size-8 " srcset="" />
           </button>
         </div>
       </nav>
