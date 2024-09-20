@@ -55,7 +55,7 @@ const Navbar = () => {
             />
             {/* Position the icon inside the input field */}
           </div>
-          <button className="flex items-center border-lime-400 border-4  rounded-full p-2">
+          <button className="flex items-center border-lime-400 border-4  rounded-full p-2 hover:bg-lime-400">
             <img src={userIcon} alt="" className="size-8 " srcset="" />
           </button>
         </div>
