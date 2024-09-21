@@ -3,8 +3,8 @@ import React from 'react'
 const Recipe = ({recipe,handleCookLists}) => {
     const {name, image, description,calories, preparing_time, ingredients} = recipe
   return (
-    <div className='m-2'>
-       <div className="bg-white rounded-3xl h-full flex justify-between flex-col gap-6  shadow-xl p-2">
+    <div className='mb-3'>
+       <div className="bg-white shadow-xl rounded-3xl h-full flex justify-between flex-col mx-3 p-3">
   <figure className="">
     <img
       src={image}
