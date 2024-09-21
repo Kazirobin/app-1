@@ -1,6 +1,6 @@
 import React from "react";
 
-const Cooks = ({ cookList, id,handlePreparing }) => {
+const Cooked = ({ cookList, id ,handleDone}) => {
   const { name, calories, preparing_time } = cookList;
   return (
     <div className="flex flex-col">
@@ -37,8 +37,8 @@ const Cooks = ({ cookList, id,handlePreparing }) => {
           <p className="text-left">{preparing_time}</p>
           <p className="text-left">{calories} calories</p>
           <button className="">
-            <h1 onClick={() => { handlePreparing(cookList) }} className="font-bold bg-lime-400  rounded-full lg:mt-2 py-1 px-4 ">
-              Preparing
+            <h1 onClick={() => { handleDone(cookList) }} className="font-bold bg-lime-400  rounded-full lg:mt-2 py-1 px-4 ">
+              Done
             </h1>
           </button>
         </div>
@@ -47,4 +47,4 @@ const Cooks = ({ cookList, id,handlePreparing }) => {
   );
 };
 
-export default Cooks;
+export default Cooked;

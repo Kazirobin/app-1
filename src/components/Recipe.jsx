@@ -1,7 +1,7 @@
 import React from 'react'
 
 const Recipe = ({recipe,handleCookLists}) => {
-    const {name, image, description,calories, preparing_time, ingredients} = recipe
+    const {name, image, description, ingredients} = recipe
   return (
     <div className='mb-3'>
        <div className="bg-white shadow-xl rounded-3xl h-full flex justify-between flex-col mx-3 p-3">
