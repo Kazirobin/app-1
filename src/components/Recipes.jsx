@@ -17,13 +17,14 @@ const Recipes = () => {
   };
   return (
     <div className="bg-slate-200">
+
       <h1 className="font-bold text-3xl">Our Recipes</h1>
       <p className="font-semibold text-xl mb-5">
         Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quo, officiis
         rem commodi
       </p>
       <div className="flex lg:flex-row md:flex-col flex-col">
-        <div className="m-auto lg:w-3/5 grid sm:grid-cols-[1fr,1fr] lg:grid-cols-[1fr,1fr]  grid-cols-[1fr]">
+        <div className="m-auto grid lg:w-3/5  sm:grid-cols-[1fr,1fr] lg:grid-cols-[1fr,1fr]  grid-cols-[1fr]">
           {/* recipes map */}
           {recipes.map((recipe, index) => (
             <Recipe
@@ -36,11 +37,11 @@ const Recipes = () => {
         </div>
         <div className="lg:w-2/5 border-4 border-lime-800">
         <h1 className="font-bold text-xl my-3">Want to cook: {cookLists.length < 10 ? `0${cookLists.length}`: cookLists.length}</h1>
-        <div className='grid  grid-cols-[55px,1.6fr,1fr,1fr,2fr]'>
-        <p></p>
-        <p className='text-left font-bold mb-3'>name</p>
-        <p className='text-left font-bold mb-3'>Time</p>
-        <p className='text-left font-bold mb-3'>Calories</p>
+        <div className='grid-cols-[55px,1.6fr,1fr,1fr,2fr] lg:grid md:grid sm:grid hidden'>
+        <p> </p>
+        <p className='text-center font-bold '>name</p>
+        <p className='text-center font-bold mb-3'>Time</p>
+        <p className='text-center font-bold mb-3'>Calories</p>
         
         </div>
           {cookLists.map((cookList, index) => {
