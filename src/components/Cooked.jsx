@@ -8,12 +8,12 @@ const Cooked = ({ cookList, id ,handleDone}) => {
       <div className="lg:hidden md:hidden sm:hidden flex  border-b-4 border-t-4 border-lime-400">
         <p className="font-bold text-2xl m-auto">{id + 1}</p>
       </div>
-      {/* Small Device Title ID End */}
+      {/* Small Device Title ID End Cooked*/}
 
       <div className="flex justify-center items-center gap-7">
-        {/* Small Device Title Bar Start */}
+        {/* Small Device Title Bar Start Cooked*/}
         <div className="lg:hidden md:hidden sm:hidden  space-y-3">
-          <p className="mb-5"> </p>
+          <p className="mb-10"> </p>
           <p className="font-bold">Name</p>
           <p className="font-bold">Time</p>
           <p className="font-bold">Calories</p>

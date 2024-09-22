@@ -13,8 +13,18 @@ const Recipes = () => {
       .then((data) => setRecipes(data));
   }, []);
   const handleCookLists = (cookList) => {
-    const newCookLists = [...cookLists, cookList];
-    setCookLists(newCookLists);
+  
+
+    const isAlreadyAdded = cookLists.some(item => item.name === cookList.name)
+
+    if(isAlreadyAdded){
+      alert("This recipe is already being cooked!")
+    }else {
+      const newCookLists = [...cookLists, cookList];
+      setCookLists(newCookLists);
+    }
+
+
   };
   const handlePreparing = (cookedList) => {
     const newCookedLists = [...cookedLists, cookedList];
@@ -58,17 +68,20 @@ const Recipes = () => {
             Want to cook:{" "}
             {cookLists.length < 10 ? `0${cookLists.length}` : cookLists.length}
           </h1>
+  
+
+      {/* Large Device Title Bar Start Cooks */}
           <div className="lg:grid-cols-[0.44fr,95px,90px,100px,10px] lg:grid md:grid md:grid-cols-[1.17fr,1fr,0.5fr,1fr,1fr] sm:grid hidden">
-            {/* <p> </p>
-            <p className="text-center font-bold ">name</p>
-            <p className="text-center font-bold mb-3">Time</p>
-            <p className="text-center font-bold mb-3">Calories</p> */}
+          
             <p className=""> </p>
-            <p className="font-bold capitalize text-left">name</p>
-            <p className="font-bold capitalize text-left">Time</p>
-            <p className="font-bold capitalize text-left">Calories</p>
-            <p className="font-bold capitalize text-left"></p>
+            <p className="font-bold text-left">Name</p>
+            <p className="font-bold text-left">Time</p>
+            <p className="font-bold text-left">Calories</p>
+            <p className="font-bold text-left"></p>
           </div>
+
+      {/* Large Device Title Bar End Cooks */}
+     
           {cookLists.map((cookList, index) => {
             return (
               <>
@@ -83,13 +96,16 @@ const Recipes = () => {
           })}
 
             {/* Cooked Starts  */}
-          <div className="heloo">
+          <div className="">
             <h1 className="font-bold text-xl my-3">
               Currently cooking:{" "}
               {cookedLists.length < 10
                 ? `0${cookedLists.length}`
                 : cookedLists.length}
             </h1>
+
+
+            {/* Large Device Title Bar Start */}
             <div className="lg:grid-cols-[0.44fr,95px,90px,100px,10px] lg:grid md:grid md:grid-cols-[1.17fr,1fr,0.5fr,1fr,1fr] sm:grid hidden">
              
               <p className=""> </p>
@@ -98,6 +114,9 @@ const Recipes = () => {
               <p className="font-bold capitalize text-left">Calories</p>
               <p className="font-bold capitalize text-left"></p>
             </div>
+            {/* Large Device Title Bar End */}
+
+
             {cookedLists.map((cookList, index) => {
               return (
                 <>
