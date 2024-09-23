@@ -10,7 +10,7 @@ const Cooked = ({ cookList, id ,handleDone}) => {
       </div>
       {/* Small Device Title ID End Cooked*/}
 
-      <div className="flex justify-center items-center gap-7">
+      <div className="flex justify-center gap-7">
         {/* Small Device Title Bar Start Cooked*/}
         <div className="lg:hidden md:hidden sm:hidden  space-y-3">
           <p className="mb-10"> </p>
@@ -20,7 +20,7 @@ const Cooked = ({ cookList, id ,handleDone}) => {
           <div className="block h-12"></div>
         </div>
         {/* Small Device Title Bar End */}
-        <div className="w-full overflow-hidden lg:grid md:grid md:grid-cols-[15px,4fr,2fr,2fr,3fr] md:gap-10 md:justify-items-start md:border-4 md:space-y-0 sm:space-y-0 sm:grid grid-cols-[14px,2fr,1fr,1fr,2fr] mt-4 space-y-3">
+        <div className="overflow-hidden lg:grid md:grid md:grid-cols-[15px,4fr,2fr,2fr,3fr] md:gap-10 md:justify-items-start md:border-4 md:space-y-0 sm:space-y-0 sm:grid grid-cols-[14px,2fr,1fr,1fr,2fr] mt-4 space-y-3 flex flex-col justify-center items-center">
           {/*
         <>
         <p className='   font-bold  lg:grid md:grid sm:grid hidden'>{id+1}</p>

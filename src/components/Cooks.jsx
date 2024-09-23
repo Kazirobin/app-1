@@ -5,13 +5,13 @@ const Cooks = ({ cookList, id,handlePreparing }) => {
   return (
     <div className="flex flex-col">
       {/* Small Device Title ID Start */}
-      <div className="lg:hidden md:hidden sm:hidden flex  border-b-4 border-t-4 border-lime-400">
+      <div className="lg:hidden md:hidden sm:hidden flex  border-b-4 border-t-4">
         <p className="font-bold text-2xl m-auto">{id + 1}</p>
       </div>
       {/* Small Device Title ID End */}
 
 
-      <div className="flex justify-center items-center gap-7">
+      <div className="flex sm:flex-col sm:gap-0 justify-center gap-7">
 
 
         
@@ -27,7 +27,7 @@ const Cooks = ({ cookList, id,handlePreparing }) => {
 
 
         {/* Small Device Title Bar End */}
-        <div className="w-full overflow-hidden lg:grid md:grid md:grid-cols-[15px,4fr,2fr,2fr,3fr] md:gap-10 md:justify-items-start md:border-4 md:space-y-0 sm:space-y-0 sm:grid grid-cols-[14px,2fr,1fr,1fr,2fr] mt-4 space-y-3">
+        <div className="overflow-hidden lg:grid md:grid md:grid-cols-[15px,4fr,2fr,2fr,3fr] md:gap-10 md:justify-items-start md:border-4 md:space-y-0 sm:space-y-0 sm:grid sm:grid-cols-[14px,2fr,1fr,1fr,2fr] mt-4 space-y-3 flex flex-col justify-center items-center">
       
 
 

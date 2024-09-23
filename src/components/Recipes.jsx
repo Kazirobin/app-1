@@ -71,7 +71,7 @@ const Recipes = () => {
   
 
       {/* Large Device Title Bar Start Cooks */}
-          <div className="lg:grid-cols-[0.44fr,95px,90px,100px,10px] lg:grid md:grid md:grid-cols-[1.17fr,1fr,0.5fr,1fr,1fr] sm:grid hidden">
+          <div className="lg:grid-cols-[0.3fr,95px,90px,100px,10px] lg:grid md:grid md:grid-cols-[1.17fr,1fr,0.5fr,1fr,1fr] sm:grid sm:grid-cols-[0.4fr,1fr,0.5fr,1fr,1fr] hidden">
           
             <p className=""> </p>
             <p className="font-bold text-left">Name</p>
@@ -106,7 +106,7 @@ const Recipes = () => {
 
 
             {/* Large Device Title Bar Start */}
-            <div className="lg:grid-cols-[0.44fr,95px,90px,100px,10px] lg:grid md:grid md:grid-cols-[1.17fr,1fr,0.5fr,1fr,1fr] sm:grid hidden">
+            <div className="lg:grid-cols-[0.44fr,95px,90px,100px,10px] lg:grid md:grid md:grid-cols-[1.17fr,1fr,0.5fr,1fr,1fr] sm:grid sm:grid-cols-[0.4fr,1fr,0.5fr,1fr,1fr] hidden">
              
               <p className=""> </p>
               <p className="font-bold capitalize text-left">name</p>
