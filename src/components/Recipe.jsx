@@ -1,7 +1,7 @@
 import React from 'react'
 
 const Recipe = ({recipe,handleCookLists}) => {
-    const {name, image, description, ingredients} = recipe
+    const {name, image, description, ingredients,preparing_time,calories} = recipe
   return (
     <div className='mb-3'>
        <div className="bg-white shadow-xl rounded-3xl h-full flex justify-between flex-col mx-3 p-3">
@@ -27,6 +27,18 @@ const Recipe = ({recipe,handleCookLists}) => {
         </ul>
         </>
     )})}
+    <div className='flex justify-between py-3'>
+
+  <div>
+    <h1 className='font-bold'>Total Time</h1>
+    <p>{preparing_time}</p>
+  </div>
+  <div>
+    <h1 className='font-bold'>Total Calories</h1>
+    <p>{calories}</p>
+
+  </div>
+    </div>
     <div className='w-full text-right'>
 
     <button className='bg-lime-400 px-6 py-2 self-end rounded-full cursor-pointer' onClick={() => { handleCookLists(recipe) }}>Want to Cook</button>

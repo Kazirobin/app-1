@@ -36,6 +36,9 @@ const Navbar = () => {
             <li className="hover:text-black">
               <Link to="/search">Search</Link>
             </li>
+            <li className="hover:text-black">
+              <Link to="/page">Page</Link>
+            </li>
           </ul>
         </div>
         <div className={!isNavOpen ? "flex justify-center gap-2" : "hidden"}>

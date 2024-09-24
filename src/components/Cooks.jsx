@@ -23,24 +23,25 @@ const Cooks = ({ cookList, id,handlePreparing }) => {
           <p className="font-bold">Calories</p>
           <div className="block h-12"></div>
         </div>
+   {/* Small Device Title Bar End */}
 
 
-
-        {/* Small Device Title Bar End */}
-        <div className="overflow-hidden lg:grid md:grid md:grid-cols-[15px,4fr,2fr,2fr,3fr] md:gap-10 md:justify-items-start md:border-4 md:space-y-0 sm:space-y-0 sm:grid sm:grid-cols-[14px,2fr,1fr,1fr,2fr] mt-4 space-y-3 flex flex-col justify-center items-center">
+        
+        <div className="lg:grid grid-cols-[repeat(5,1fr)] flex flex-col justify-between">
       
 
 
           <p className="font-bold  lg:grid md:grid sm:grid hidden justify-self-center">
             {id + 1}
 
-
           </p>
+           <p className="lg:hidden"></p>
+            <p className="lg:hidden"></p> 
           <p className="text-left">{name}</p>
           <p className="text-left">{preparing_time}</p>
           <p className="text-left">{calories} calories</p>
           <button className="">
-            <h1 onClick={() => { handlePreparing(cookList) }} className="font-bold bg-lime-400  rounded-full lg:mt-2 py-1 px-4 ">
+            <h1 onClick={() => { handlePreparing(cookList,preparing_time,calories) }} className="font-bold bg-lime-400  rounded-full lg:mt-2 py-1 px-4 ">
               Preparing
             </h1>
           </button>

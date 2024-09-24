@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+.main{
+    .sub{
+        p{
+            text-transform: capitalize;
+        }
+    }
+}
+    </style>
+</head>
+<body>
+    <div class="main">
+        <div class="sub">
+            <p>hello</p>
+        </div>
+    </div>
+    <div class="grid grid-cols-[repeat(5,1fr)]">
+        <p></p>
+        <p>Name</p>
+        <p>Time</p>
+        <p>Calories</p>
+        <p></p>
+    </div>
+    <div  class="grid grid-cols-[repeat(5,1fr)]">
+        <p>1</p>
+        <p>Chicken Curry</p>
+        <p>40 minutes</p>
+        <p>450 calories</p>
+        <button><p>Preparing</p></button>
+    </div>
+
+<script>
+var arr = ["20 minutes", "30 minutes", "2 hour", "1 minutes"];
+
+// Function to convert time to minutes
+function timeToMinutes(timeStr) {
+    let value = parseInt(timeStr); // Get the number part
+    if (timeStr.includes('hour')) {
+        return value * 60; // Convert hours to minutes
+    } else {
+        return value; // Already in minutes
+    }
+}
+
+// Convert each time string to minutes
+var arr1 = timeToMinutes(arr[0]);
+var arr2 = timeToMinutes(arr[1]);
+var arr3 = timeToMinutes(arr[2]);
+var arr4 = timeToMinutes(arr[3]);
+
+// Now perform the addition
+console.log(arr1 + arr2 + " minutes"); // 50 minutes
+console.log(arr2 + arr3 + " minutes"); // 150 minutes (30 minutes + 2 hours)
+
+</script>
+    <script src='https://cdn.tailwindcss.com'></script>
+</body>
+</html>
