@@ -3,6 +3,14 @@ import Recipe from "./Recipe";
 import Cooks from "./Cooks";
 import Cooked from "./Cooked";
 
+// Import local storage functions
+import {
+  saveCookListsToLocal,
+  getCookListsFromLocal,
+  saveCookedListsToLocal,
+  getCookedListsFromLocal
+} from "../utilities/local.js";
+
 const Recipes = () => {
   const [recipes, setRecipes] = useState([]);
   const [cookLists, setCookLists] = useState([]);
@@ -10,17 +18,26 @@ const Recipes = () => {
   const [totalTimes, setTotalTimes] = useState(0);
   const [totalCalories, setTotalCalories] = useState(0);
 
+  // Load recipes from localStorage when component mounts
   useEffect(() => {
+    const savedCookLists = getCookListsFromLocal();
+    const savedCookedLists = getCookedListsFromLocal();
+
+    if (savedCookLists.length) {
+      setCookLists(savedCookLists);
+    }
+    if (savedCookedLists.length) {
+      setCookedLists(savedCookedLists);
+    }
+
+    // Load recipe data from file or server
     fetch("recipes.json")
       .then((res) => res.json())
       .then((data) => setRecipes(data));
   }, []);
 
-  // handleCookLists it work when i click Want to cook
+  // handleCookLists: When a recipe is added to "Want to Cook"
   const handleCookLists = (cookList) => {
-
-
-
     const isAlreadyAdded = cookLists.some(
       (item) => item.name === cookList.name
     );
@@ -30,22 +47,20 @@ const Recipes = () => {
     } else {
       const newCookLists = [...cookLists, cookList];
       setCookLists(newCookLists);
+      saveCookListsToLocal(newCookLists); // Save to localStorage
     }
   };
-  //handlePreparing it work after Want to cook
-  const handlePreparing = (cookedList,time,calories) => {
 
-    const timeInt = (time) => { 
-      let value = parseInt(time)
-      if (time.includes('hour')){
-        return value * 60
-      }  else {
-        return value
+  // handlePreparing: When a recipe is being cooked
+  const handlePreparing = (cookedList, time, calories) => {
+    const timeInt = (time) => {
+      let value = parseInt(time);
+      if (time.includes("hour")) {
+        return value * 60;
+      } else {
+        return value;
       }
-      
-      }
-
-
+    };
 
     const isAlreadyAdded = cookedLists.some(
       (item) => item.name === cookedList.name
@@ -54,49 +69,49 @@ const Recipes = () => {
     if (isAlreadyAdded) {
       alert("This recipe is already being cooked!");
       if (cookLists.length > 1) {
-        // const updatedCookLists = ;
-        setCookLists(cookLists.filter((item) => item.name !== cookedList.name));
-
-      } 
+        const updatedCookLists = cookLists.filter((item) => item.name !== cookedList.name);
+        setCookLists(updatedCookLists);
+        saveCookListsToLocal(updatedCookLists); // Save to localStorage
+      }
     } else {
       const newCookedLists = [...cookedLists, cookedList];
       setCookedLists(newCookedLists);
-      setTotalTimes(parseInt(totalTimes) + timeInt(time))
-      setTotalCalories(parseInt(totalCalories) + parseInt(calories))
-
-      console.log(cookedLists);
+      setTotalTimes(parseInt(totalTimes) + timeInt(time));
+      setTotalCalories(parseInt(totalCalories) + parseInt(calories));
+      saveCookedListsToLocal(newCookedLists); // Save to localStorage
 
       if (cookLists.length > 1) {
-        // const updatedCookLists = ;
-        setCookLists(cookLists.filter((item) => item.name !== cookedList.name));
-      } 
+        const updatedCookLists = cookLists.filter((item) => item.name !== cookedList.name);
+        setCookLists(updatedCookLists);
+        saveCookListsToLocal(updatedCookLists); // Save to localStorage
+      }
     }
   };
 
-//handleDone after finally all set 
-  const handleDone = (cookedList,time,calories) => {
-
-    const deleteDone = cookedLists.filter(
+  // handleDone: When a recipe is marked as done cooking
+  const handleDone = (cookedList, time, calories) => {
+    const updatedCookedLists = cookedLists.filter(
       (item) => item.name !== cookedList.name
     );
-    setCookedLists(deleteDone);
+    setCookedLists(updatedCookedLists);
+    saveCookedListsToLocal(updatedCookedLists); // Save to localStorage
 
-    const timeInt = (time) => { 
-      let value = parseInt(time)
-      if (time.includes('hour')){
-        return value * 60
-      }  else {
-        return value
+    const timeInt = (time) => {
+      let value = parseInt(time);
+      if (time.includes("hour")) {
+        return value * 60;
+      } else {
+        return value;
       }
-      
-      }
-    setTotalTimes(parseInt(totalTimes) - timeInt(time))
-    setTotalCalories(parseInt(totalCalories) - parseInt(calories))
+    };
+    setTotalTimes(parseInt(totalTimes) - timeInt(time));
+    setTotalCalories(parseInt(totalCalories) - parseInt(calories));
   };
+
   return (
     <div className="bg-slate-200">
       <h1 className="font-bold text-3xl pt-5">Our Recipes</h1>
-      <p className="font-semibold text-xl py-5 ">
+      <p className="font-semibold text-xl py-5">
         Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quo, officiis
         rem commodi
       </p>
@@ -125,12 +140,7 @@ const Recipes = () => {
             {cookLists.length < 10 ? `0${cookLists.length}` : cookLists.length}
           </h1>
 
-          {/* Large Device Title Bar Start Cooks
-      
-      lg:grid-cols-[0.3fr,95px,90px,100px,10px] 
-          lg:grid md:grid md:grid-cols-[1.17fr,1fr,0.5fr,1fr,1fr] 
-          sm:grid sm:grid-cols-[0.4fr,1fr,0.5fr,1fr,1fr] hidden
-      */}
+          {/* Large Device Title Bar Start Cooks */}
           <div className="grid grid-cols-[repeat(5,1fr)]">
             <p className=""> </p>
             <p className="font-bold text-left">Name</p>
@@ -143,14 +153,12 @@ const Recipes = () => {
 
           {cookLists.map((cookList, index) => {
             return (
-              <>
-                <Cooks
-                  key={index}
-                  id={index}
-                  cookList={cookList}
-                  handlePreparing={handlePreparing}
-                />
-              </>
+              <Cooks
+                key={index}
+                id={index}
+                cookList={cookList}
+                handlePreparing={handlePreparing}
+              />
             );
           })}
           {/* Cooked Starts  */}
@@ -174,18 +182,16 @@ const Recipes = () => {
 
             {cookedLists.map((cookList, index) => {
               return (
-                <>
-                  <Cooked
-                    key={index}
-                    id={index}
-                    cookList={cookList}
-                    handleDone={handleDone}
-                    />
-                </>
+                <Cooked
+                  key={index}
+                  id={index}
+                  cookList={cookList}
+                  handleDone={handleDone}
+                />
               );
             })}
-      <p>Total time : {totalTimes} Minuets</p>
-      <p>Total calories : {totalCalories} Calories</p>
+            <p>Total time : {totalTimes} Minutes</p>
+            <p>Total calories : {totalCalories} Calories</p>
           </div>
           {/* Cooked Ends  */}
         </div>
